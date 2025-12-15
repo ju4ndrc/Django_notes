@@ -15,13 +15,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from django.http import HttpResponse
 from django.urls import path
+from my_fisrt_app.views import author_view
 
-def my_view2(request):
-    return "HEllo"
+def my_view2(request, *args, **kwargs):
+    print(args)
+    print(kwargs)
+    return HttpResponse("")
 
 urlpatterns = [
 
-    path("/list",my_view2)
+    path("list/",my_view2),
+
+    path("detail/<int:id>",my_view2),
+
+    path("brands/<str:brand>",my_view2),
+
+    path("author/<str:name>",author_view)
+
+
 
 ]

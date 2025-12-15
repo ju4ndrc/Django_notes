@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from my_fisrt_app.views import my_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('car-list/',my_view),
-    path('cars/',include('my_fisrt_app.urls'))#otro modulo de la app
+    
+    path('',include('my_fisrt_app.urls')),#otro modulo de la app
+
     
 
 ]
